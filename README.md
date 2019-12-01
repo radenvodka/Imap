@@ -227,7 +227,17 @@ $message->header()->get('udate');
 To get message body
 
 ```php
-$message->body()->getMessage();
+Entire message : 
+
+0 - Message header
+1 - MULTIPART/ALTERNATIVE
+1.1 - TEXT/PLAIN
+1.2 - TEXT/HTML
+2 - file.ext
+
+$message->body()->getMessage();  // default Entire message 2
+$message->body()->getMessage('1.1');  // using TEXT/HTML
+
 $message->body()->getEncoding();
 ```
 
